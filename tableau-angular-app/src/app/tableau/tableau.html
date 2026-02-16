@@ -1,0 +1,10 @@
+Tableau Cloud Dashboard
+<tableau-viz
+  *ngIf="token"
+  [src]="vizUrl"
+  [token]="token"
+  toolbar="bottom"
+  hide-tabs
+  (firstinteractive)="onFirstInteractive($event)"
+  (filterchanged)="onFilterChanged($event)">
+</tableau-viz>
