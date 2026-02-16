@@ -27,7 +27,7 @@ def generate_tableau_jwt(user_identifier="external_user"):
     token = jwt.encode(
         {
             "iss": settings.TABLEAU_CLIENT_ID,
-            "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=5),
+            "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=1),
             "jti": str(uuid.uuid4()),
             "aud": "tableau",
             "sub": "lovely.saimon@predigle.com",

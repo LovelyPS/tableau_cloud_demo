@@ -37,10 +37,13 @@ export class Tableau {
   onFirstInteractive(event: any) {
     console.log("Dashboard loaded successfully");
 
-    // const viz = event.target;
+    const vizElement = event.target;
 
-    // // Example preset filter
-    // viz.applyFilterAsync("Region", "India", "replace");
+  const workbook = vizElement.workbook;
+  const activeSheet = workbook.activeSheet;
+
+    // Example preset filter
+    activeSheet.applyFilterAsync("Brand Name", ["Contoso"], "replace");
   }
 
   onFilterChanged(event: any) {
