@@ -29,7 +29,6 @@ currentFilters: any[] = [];
     this.tableauService.getTableauToken().subscribe({
       next: (response) => {
         this.token = response.token;
-        console.log("Token : ",this.token)
          this.cdr.detectChanges();
       },
       error: (err) => {
@@ -73,7 +72,7 @@ currentFilters: any[] = [];
     const filters = await activeSheet.getFiltersAsync();
     this.currentFilters = this.formatFilters(filters);
   }
-
+  this.cdr.detectChanges();
   console.log("All Current Filters:", this.currentFilters);
 }
 
