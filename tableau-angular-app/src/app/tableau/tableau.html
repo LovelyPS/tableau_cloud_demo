@@ -1,10 +1,20 @@
 Tableau Cloud Dashboard
+<div *ngIf="currentFilters.length > 0">
+  <h3>Current Filters:</h3>
+  <ul>
+    <li *ngFor="let filter of currentFilters">
+      <strong>{{ filter.field }}</strong> :
+      {{ filter.values.join(', ') }}
+    </li>
+  </ul>
+</div>
 <tableau-viz
   *ngIf="token"
   [src]="vizUrl"
   [token]="token"
   toolbar="bottom"
   hide-tabs
+  #vizRef
   (firstinteractive)="onFirstInteractive($event)"
   (filterchanged)="onFilterChanged($event)">
 </tableau-viz>
